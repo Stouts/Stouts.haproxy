@@ -1,0 +1,6 @@
+---
+
+- include: haproxy.yml
+  when: haproxy_enabled
+  tags: [haproxy]
+

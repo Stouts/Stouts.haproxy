@@ -1,0 +1,16 @@
+---
+
+- name: Ensure HAProxy is installed
+  package: name=haproxy state=installed
+
+- name: Configure HAProxy
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+    mode: 0644
+    validate: haproxy -f %s -c -q 
+  notify: haproxy restart
+
+- name: Ensure HAProxy is started and enabled
+  service: name=haproxy state=started enabled=yes
+

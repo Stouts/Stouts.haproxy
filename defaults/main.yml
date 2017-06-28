@@ -1,0 +1,20 @@
+---
+
+haproxy_enabled: true
+
+haproxy_user: haproxy
+haproxy_group: "{{haproxy_user}}"
+
+haproxy_globals: []
+haproxy_defaults: []
+
+haproxy_frontend: frontend
+haproxy_frontend_bind: "*:80"
+haproxy_frontend_mode: "http"
+haproxy_frontend_default_backend: "{{haproxy_backend}}"
+haproxy_frontend_options: []
+
+haproxy_backend: backend
+haproxy_backend_balance: roundrobin
+haproxy_backend_options: []
+
